@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      background-image: url("path/to/your/image.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    
+    .container {
+      text-align: center;
+      margin-top: 100px;
+      border-radius: 20px;
+      padding: 20px;
+      background: linear-gradient(135deg, #FFC500, #FF006C);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+    
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+    
+    .date-input {
+      margin-top: 20px;
+    }
+    
+    .predict-button {
+      margin-top: 20px;
+      font-size: 18px;
+      padding: 10px 20px;
+      background-color: #FF006C;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    
+    .prediction-result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+    
+    .description {
+      margin-top: 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">OIL PRICE PREDICTION</div>
+    <div class="subtitle">Data Science Project - Team 4</div>
+    <form action="/predict" method="POST">
+      <div class="date-input">
+        <label for="date">Select a date:</label>
+        <input type="date" id="date" name="date">
+      </div>
+      <button class="predict-button" type="submit">Predict</button>
+    </form>
+    <div class="prediction-result">
+      {% if prediction %}
+        Oil Price On Selected Date: ${{ prediction }}
+      {% endif %}
+    </div>
+    <div class="description">Select a date and press the Predict button to get the future price.</div>
+  </div>
+</body>
+</html>
